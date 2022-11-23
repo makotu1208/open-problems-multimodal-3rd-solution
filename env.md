@@ -7,4 +7,4 @@ GPU Spec
 - GPU: GTX 1080 Ti
 - CUDA Version: 11.4
 - Driver Version: 470.103.01
-- Memory(GPU): 1GB
+- Memory(GPU): 11.7GB
