@@ -58,30 +58,67 @@ output_path = '../../../output/'
 # ## Cite
 
 # +
+# get model name
+#mlp_model_path = os.listdir(cite_mlp_path)
+# -
+
+mlp_model_name = [
+    'corr_add_con_imp',
+    'corr_last_v3', 
+    'corr_c_add_w2v_v1_mish_flg',
+    'corr_c_add_w2v_v1_flg',
+    'corr_c_add_84_v1',
+    'corr_c_add_120_v1',
+    'corr_w2v_cell_flg',
+    'corr_best_cell_120',
+    'corr_cluster_cell',
+    'corr_w2v_128',
+    'corr_imp_w2v_128',
+    'corr_snorm',
+    'corr_best_128',
+    'corr_best_64',
+    'corr_cluster_128',
+    'corr_cluster_64',
+    'corr_svd_128',
+    'corr_svd_64',
+             ]
+
+# +
+model_name_list = []
+
+for i in mlp_model_name:
+    for num, j in enumerate(os.listdir(cite_mlp_path)):
+        if i in j:
+            model_name_list.append(j)
+
+len(model_name_list)
+model_name_list
+
+# +
 weight = [1, 0.3, 1, 1, 1, 1, 1, 1, 1, 0.8, 0.8, 0.8, 0.8, 0.5, 0.5, 0.5, 1, 1, 2, 2]
 weight_sum = np.array(weight).sum()
 weight_sum
 
-model_feat_dict = {'cite_mlp_corr_add_con_imp_flg_donor_val_50':['X_test_add_con_imp.pickle', 1],
-                   'cite_mlp_corr_last_v3_flg_donor_val_55':['X_test_last_v3.pickle', 0.3],
-                   'cite_mlp_corr_c_add_w2v_v1_mish_flg_donor_val_66':['X_test_c_add_w2v_v1.pickle', 1],
-                   'cite_mlp_corr_c_add_w2v_v1_flg_donor_val_66':['X_test_c_add_w2v_v1.pickle', 1],
-                   'cite_mlp_corr_c_add_84_v1_flg_donor_val_47':['X_test_c_add_84_v1.pickle', 1],
-                   'cite_mlp_corr_c_add_120_v1_flg_donor_val_63':['X_test_c_add_v1.pickle', 1],
+model_feat_dict = {model_name_list[0]:['X_test_add_con_imp.pickle', 1],
+                   model_name_list[1]:['X_test_last_v3.pickle', 0.3],
+                   model_name_list[2]:['X_test_c_add_w2v_v1.pickle', 1],
+                   model_name_list[3]:['X_test_c_add_w2v_v1.pickle', 1],
+                   model_name_list[4]:['X_test_c_add_84_v1.pickle', 1],
+                   model_name_list[5]:['X_test_c_add_v1.pickle', 1],
                    
-                   'cite_mlp_corr_w2v_cell_flg_donor_val_51':['X_test_feature_w2v_cell.pickle', 1],
-                   'cite_mlp_corr_best_cell_120_flg_donor_val_51':['X_test_best_cell_128_120.pickle', 1],
-                   'cite_mlp_corr_cluster_cell_flg_donor_val_64':['X_test_cluster_cell_128.pickle', 1],
+                   model_name_list[6]:['X_test_feature_w2v_cell.pickle', 1],
+                   model_name_list[7]:['X_test_best_cell_128_120.pickle', 1],
+                   model_name_list[8]:['X_test_cluster_cell_128.pickle', 1],
                    
-                   'cite_mlp_corr_w2v_128_flg_donor_val_42':['X_test_feature_w2v.pickle', 0.8],
-                   'cite_mlp_corr_imp_w2v_128_flg_donor_val_38':['X_test_feature_imp_w2v.pickle',0.8],
-                   'cite_mlp_corr_snorm_flg_donor_val_39':['X_test_feature_snorm.pickle', 0.8],
-                   'cite_mlp_corr_best_128_flg_donor_val_45':['X_test_best_128.pickle', 0.8],
-                   'cite_mlp_corr_best_64_flg_donor_val_50':['X_test_best_64.pickle', 0.5],
-                   'cite_mlp_corr_cluster_128_flg_donor_val_51':['X_test_cluster_128.pickle', 0.5],
-                   'cite_mlp_corr_cluster_64_flg_donor_val_57':['X_test_cluster_64.pickle', 0.5],
-                   'cite_mlp_corr_svd_128_flg_donor_val_30':['X_test_svd_128.pickle', 1],
-                   'cite_mlp_corr_svd_64_flg_donor_val_38':['X_test_svd_64.pickle', 1],
+                   model_name_list[9]:['X_test_feature_w2v.pickle', 0.8],
+                   model_name_list[10]:['X_test_feature_imp_w2v.pickle',0.8],
+                   model_name_list[11]:['X_test_feature_snorm.pickle', 0.8],
+                   model_name_list[12]:['X_test_best_128.pickle', 0.8],
+                   model_name_list[13]:['X_test_best_64.pickle', 0.5],
+                   model_name_list[14]:['X_test_cluster_128.pickle', 0.5],
+                   model_name_list[15]:['X_test_cluster_64.pickle', 0.5],
+                   model_name_list[16]:['X_test_svd_128.pickle', 1],
+                   model_name_list[17]:['X_test_svd_64.pickle', 1],
                    
                    'best_128':['X_test_best_128.pickle', 2],
                    'best_64':['X_test_best_64.pickle', 2],
@@ -346,6 +383,50 @@ cite_sub = pd.DataFrame(pred.round(6))
 
 # ## Multi
 
+mlp_model_name = [
+    'multi_mlp_all_con_16',
+    'multi_mlp_all_con_32', 
+    'multi_mlp_all_binary_16',
+    'multi_mlp_all_last_cluster',
+    'multi_mlp_all_lsi_w2v_col_128_flg',
+    'multi_mlp_all_lsi_w2v_128_flg',
+    'multi_mlp_all_lsi_128_flg',
+    'multi_mlp_all_lsi_w2v_col_64_flg',
+    'multi_mlp_all_lsi_w2v_64_flg',
+    'multi_mlp_all_lsi_64_flg',
+    'multi_mlp_all_okapi_128_flg',
+    'multi_mlp_all_okapi_64_flg',
+    'multi_mlp_all_colmean_64_flg',
+    'multi_mlp_corr_con_16_flg',
+    'multi_mlp_corr_con_32_flg',
+    'multi_mlp_corr_binary_16',
+    'multi_mlp_corr_lsi_add_lc_svd_flg',
+    
+    'multi_mlp_corr_lsi_w2v_col_128_flg',
+    'multi_mlp_corr_lsi_w2v_col_64_flg',
+    'multi_mlp_corr_lsi_w2v_128_flg',
+    'multi_mlp_corr_lsi_w2v_64_flg',
+    
+    'multi_mlp_corr_lsi_128_flg',
+    'multi_mlp_corr_lsi_64_flg',
+    
+    'multi_mlp_corr_colmean_64_flg',
+    'multi_mlp_corr_okapi_w2v_64_flg',
+    'multi_mlp_corr_okapi_64_flg',
+    
+             ]
+
+# +
+model_name_list = []
+
+for i in mlp_model_name:
+    for num, j in enumerate(os.listdir(multi_mlp_path)):
+        if i in j:
+            model_name_list.append(j)
+
+print(len(model_name_list))
+model_name_list
+
 # +
 weight = [2.5, 2.5, 2.5, 1.2, 1.2, 1.2, 1, 
           1.5, 1.5, 2.5, 0.5, 0.5, 0.5, 
@@ -354,38 +435,38 @@ weight = [2.5, 2.5, 2.5, 1.2, 1.2, 1.2, 1,
 weight_sum = np.array(weight).sum()
 weight_sum
 
-model_feat_dict = {'multi_mlp_all_con_16_flg_donor_val_62':['multi_test_con_16.pickle', 2.5],
-                   'multi_mlp_all_con_32_flg_donor_val_75':['multi_test_con_32.pickle', 2.5],
-                   'multi_mlp_all_binary_16_flg_donor_val_145':['multi_test_binary_16.pickle', 2.5],
+model_feat_dict = {model_name_list[0]:['multi_test_con_16.pickle', 2.5],
+                   model_name_list[1]:['multi_test_con_32.pickle', 2.5],
+                   model_name_list[2]:['multi_test_binary_16.pickle', 2.5],
                    
-                   'multi_mlp_all_last_cluster_flg_donor_val_78':['multi_test_okapi_64_last_cluster.pickle', 1.2],
-                   'multi_mlp_all_lsi_w2v_col_128_flg_donor_val_47':['multi_test_lsi_w2v_col_128.pickle', 1.2],
-                   'multi_mlp_all_lsi_w2v_128_flg_donor_val_61':['multi_test_lsi_w2v_128.pickle', 1.2],
-                   'multi_mlp_all_lsi_128_flg_donor_val_64':['multi_test_okapi_lsi_128.pickle', 1],
+                   model_name_list[3]:['multi_test_okapi_64_last_cluster.pickle', 1.2],
+                   model_name_list[4]:['multi_test_lsi_w2v_col_128.pickle', 1.2],
+                   model_name_list[5]:['multi_test_lsi_w2v_128.pickle', 1.2],
+                   model_name_list[6]:['multi_test_okapi_lsi_128.pickle', 1],
                    
-                   'multi_mlp_all_lsi_w2v_col_64_flg_donor_val_119':['multi_test_lsi_w2v_col_64.pickle', 1.5],
-                   'multi_mlp_all_lsi_w2v_64_flg_donor_val_67':['multi_test_lsi_w2v_64.pickle', 1.5],
-                   'multi_mlp_all_lsi_64_flg_donor_val_89':['multi_test_okapi_lsi_64.pickle', 2.5],
+                   model_name_list[7]:['multi_test_lsi_w2v_col_64.pickle', 1.5],
+                   model_name_list[8]:['multi_test_lsi_w2v_64.pickle', 1.5],
+                   model_name_list[9]:['multi_test_okapi_lsi_64.pickle', 2.5],
                    
-                   'multi_mlp_all_okapi_128_flg_donor_val_43':['multi_test_okapi_feature_128.pickle', 0.5],
-                   'multi_mlp_all_okapi_64_flg_donor_val_53':['multi_test_okapi_feature_64.pickle', 0.5],
-                   'multi_mlp_all_colmean_64_flg_donor_val_47':['multi_test_okapi_w2v_col_64.pickle', 0.5],
+                   model_name_list[10]:['multi_test_okapi_feature_128.pickle', 0.5],
+                   model_name_list[11]:['multi_test_okapi_feature_64.pickle', 0.5],
+                   model_name_list[12]:['multi_test_okapi_w2v_col_64.pickle', 0.5],
                    
-                   'multi_mlp_corr_con_16_flg_donor_val_40':['multi_test_con_16.pickle', 2.5],
-                   'multi_mlp_corr_con_32_flg_donor_val_41':['multi_test_con_32.pickle', 2.5],
-                   'multi_mlp_corr_binary_16_flg_donor_val_55':['multi_test_binary_16.pickle', 1.8],
-                   'multi_mlp_corr_lsi_add_lc_svd_flg_donor_val_35':['multi_test_lc_addsvd_64.pickle', 0.8],
+                   model_name_list[13]:['multi_test_con_16.pickle', 2.5],
+                   model_name_list[14]:['multi_test_con_32.pickle', 2.5],
+                   model_name_list[15]:['multi_test_binary_16.pickle', 1.8],
+                   model_name_list[16]:['multi_test_lc_addsvd_64.pickle', 0.8],
                    
-                   'multi_mlp_corr_lsi_w2v_col_128_flg_donor_val_36':['multi_test_lsi_w2v_col_128.pickle', 1],
-                   'multi_mlp_corr_lsi_w2v_col_64_flg_donor_val_48':['multi_test_lsi_w2v_col_64.pickle', 0.8],
-                   'multi_mlp_corr_lsi_w2v_128_flg_donor_val_33':['multi_test_lsi_w2v_128.pickle', 1],
-                   'multi_mlp_corr_lsi_w2v_64_flg_donor_val_51':['multi_test_lsi_w2v_64.pickle', 0.8],
-                   'multi_mlp_corr_lsi_128_flg_donor_val_34':['multi_test_okapi_lsi_128.pickle', 1],
-                   'multi_mlp_corr_lsi_64_flg_donor_val_51':['multi_test_okapi_lsi_64.pickle', 0.3],
+                   model_name_list[17]:['multi_test_lsi_w2v_col_128.pickle', 1],
+                   model_name_list[18]:['multi_test_lsi_w2v_col_64.pickle', 0.8],
+                   model_name_list[19]:['multi_test_lsi_w2v_128.pickle', 1],
+                   model_name_list[20]:['multi_test_lsi_w2v_64.pickle', 0.8],
+                   model_name_list[21]:['multi_test_okapi_lsi_128.pickle', 1],
+                   model_name_list[22]:['multi_test_okapi_lsi_64.pickle', 0.3],
                    
-                   'multi_mlp_corr_colmean_64_flg_donor_val_54':['multi_test_okapi_w2v_col_64.pickle', 0.3],
-                   'multi_mlp_corr_okapi_w2v_64_flg_donor_val_62':['multi_test_okapi_w2v_64.pickle', 0.3],
-                   'multi_mlp_corr_okapi_64_flg_donor_val_59':['multi_test_okapi_feature_64.pickle', 0.3],
+                   model_name_list[23]:['multi_test_okapi_w2v_col_64.pickle', 0.3],
+                   model_name_list[24]:['multi_test_okapi_w2v_64.pickle', 0.3],
+                   model_name_list[25]:['multi_test_okapi_feature_64.pickle', 0.3],
                    
                    'lsi_128':['multi_test_okapi_lsi_128.pickle', 0.2],
                    'lsi_64':['multi_test_okapi_lsi_64.pickle', 0.2],
