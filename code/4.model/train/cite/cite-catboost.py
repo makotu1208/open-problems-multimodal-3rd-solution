@@ -64,7 +64,7 @@ validation_path = '../../../../input/fold/'
 
 target_path = '../../../../input/target/cite/'
 feature_path = '../../../../input/features/cite/'
-output_path = '../../../../model/multi/mlp/'
+output_path = '../../../../model/cite/cb/'
 
 # +
 df_meta = pd.read_pickle(validation_path + "cite_fold_val_df.pickle")

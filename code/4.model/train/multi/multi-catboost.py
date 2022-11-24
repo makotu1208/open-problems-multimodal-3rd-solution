@@ -64,7 +64,7 @@ validation_path = '../../../../input/fold/'
 
 target_path = '../../../../input/target/multi/'
 feature_path = '../../../../input/features/multi/'
-output_path = '../../../../model/multi/mlp/'
+output_path = '../../../../model/multi/cb/'
 # -
 
 Y = pd.read_pickle(target_path + 'multi_train_target_128.pickle')
