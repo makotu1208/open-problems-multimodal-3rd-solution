@@ -132,6 +132,7 @@ dmypy.json
 *.csv
 *.pickle
 *.docx
+*.pdf
 
 # add:model files
 *.pkl
