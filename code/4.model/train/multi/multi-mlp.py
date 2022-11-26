@@ -43,7 +43,7 @@ pd.set_option('display.max_columns', 500)
 preprocess_path = '../../../../input/preprocess/multi/'
 validation_path = '../../../../input/fold/'
 
-target_path = '../../../../input/target/multi/'
+target_path = '../../../../input/target/'
 feature_path = '../../../../input/features/multi/'
 output_path = '../../../../model/multi/mlp/'
 

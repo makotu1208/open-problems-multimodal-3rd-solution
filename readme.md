@@ -1,24 +1,25 @@
 # open-problems-multimodal-3rd-solution
 
-This repository is a Open Problems - Open-sourced code for the third-order solution of the Multimodal Single-Cell Integration competition. 
+This repository is a Open Problems - Open-sourced code for the third-order solution of the Multimodal Single-Cell Integration competition.
 <br>
 <br>
 
-## basic usage 
-  
+## basic usage
+
  Case 1: quick prediction(use pretrained model and prepared feature)
   1. put into data and model  
        model folder: https://www.kaggle.com/datasets/mhyodo/open-problems-models  
        input/features folder: https://www.kaggle.com/datasets/mhyodo/open-problems-features
-       
+
   2. run this `cd ./code/4.model/pred/ && python prediction.py`
 
  Case 2: retrain(with prepared feature)
   1. put into data and model  
        model folder: https://www.kaggle.com/datasets/mhyodo/open-problems-models  
-       input/features folder: https://www.kaggle.com/datasets/mhyodo/open-problems-features  
+       input/features folder: https://www.kaggle.com/datasets/mhyodo/open-problems-features
+       input/target folder: https://www.kaggle.com/datasets/mhyodo/samp-test  
        input/fold folder: https://www.kaggle.com/datasets/mhyodo/open-problems-cite-folds  
-       
+
   2. run this  
         `cd ./code/4.model/train/cite/ && python cite-mlp.py`  
         `cd ./code/4.model/train/cite/ && python cite-catboost.py`  
@@ -26,7 +27,7 @@ This repository is a Open Problems - Open-sourced code for the third-order solut
         `cd ./code/4.model/train/multi/ && python multi-catboost.py`  
 
  Case 3: make feature
-   1. put into data and model 
+   1. put into data and model
         input/raw folder:
             https://www.kaggle.com/competitions/open-problems-multimodal/data  
             https://www.kaggle.com/datasets/ryanholbrook/open-problems-raw-counts  

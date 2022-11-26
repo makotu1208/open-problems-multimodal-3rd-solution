@@ -43,7 +43,7 @@ pd.set_option('display.max_columns', 500)
 preprocess_path = '../../../../input/preprocess/cite/'
 validation_path = '../../../../input/fold/'
 
-target_path = '../../../../input/target/cite/'
+target_path = '../../../../input/target/'
 feature_path = '../../../../input/features/cite/'
 output_path = '../../../../model/cite/mlp/'
 

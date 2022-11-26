@@ -65,7 +65,7 @@ raw_path = '../../input/raw/'
 preprocess_path = '../../input/preprocess/multi/'
 validation_path = '../../input/fold/'
 
-target_path = '../../input/target/multi/'
+target_path = '../../input/target/'
 feature_path = '../../input/features/multi/'
 model_path = '../../model/validation/multi/'
 # -

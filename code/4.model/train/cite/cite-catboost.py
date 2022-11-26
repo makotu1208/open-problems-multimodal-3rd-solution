@@ -62,7 +62,7 @@ def correlation_score(y_true, y_pred):
 preprocess_path = '../../../../input/preprocess/cite/'
 validation_path = '../../../../input/fold/'
 
-target_path = '../../../../input/target/cite/'
+target_path = '../../../../input/target/'
 feature_path = '../../../../input/features/cite/'
 output_path = '../../../../model/cite/cb/'
 
