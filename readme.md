@@ -16,7 +16,7 @@ This repository is a Open Problems - Open-sourced code for the third-order solut
  Case 2: retrain(with prepared feature)
   1. put into data and model  
        model folder: https://www.kaggle.com/datasets/mhyodo/open-problems-models  
-       input/features folder: https://www.kaggle.com/datasets/mhyodo/open-problems-features
+       input/features folder: https://www.kaggle.com/datasets/mhyodo/open-problems-features  
        input/target folder: https://www.kaggle.com/datasets/mhyodo/samp-test  
        input/fold folder: https://www.kaggle.com/datasets/mhyodo/open-problems-cite-folds  
 
